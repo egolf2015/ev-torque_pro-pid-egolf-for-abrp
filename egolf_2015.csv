@@ -1,0 +1,15 @@
+"Name", "ShortName", "ModeAndPID", "Equation", "Min Value", "Max Value", "Units", "Header", "startDiagnostic", "stopDiagnostic", "Scale"
+"000_CHARGING_MODE","Charging State","0x227448","LOOKUP(A::1=0:4=1:6=2)",0,2,"","7E5","","",1
+"000_HV_BATTERY_CURRENT","Batterie I","0x221e3d","(a*256+b-2044)/4*(-1)",0,0,"A","7E5","","",1
+"000_HV_BATTERY_TEMPERATURE","Batterie Temp","0x222a0b","(A*256+B)/64",0,0,"°C","7E5","","",1
+"000_HV_BATTERY_VOLTAGE","Batterie U","0x221e3b","(A*256+B)/4",0,250,"V","7E5","","",1
+"000_HV_MAX_ENERGY_CONTENT","Max Energy","0x222ab2","(A*256+B)*50/1000)",0,999000,"kWh","710","ATCRA77A","ATAR",0.001
+"000_REAL_VEHICLE_SPEED","Speed","0x22f40d","A",0,180,"km/h","7E0","","",1
+"000_STATE_OF_CHARGE_BMS","SOC (BMS)","0x22028c","A/2.5",0,0,"%","7E5","","",1
+"000_STATE_OF_CHARGE_DISPLAY","SOC","0x221dd0","A/2",0,0,"%","710","ATCRA77A","ATAR",1
+"001_BATTERY_DRAW","Energy Draw","","(val{000_HV_BATTERY_CURRENT}*val{000_HV_BATTERY_VOLTAGE}/1000)",-90,90,"kW","","","",1
+"001_HV_ENERGY_CONTENT","Energie","","val{000_HV_MAX_ENERGY_CONTENT}*val{000_STATE_OF_CHARGE_DISPLAY}/100",0,19675,"kWh","","","",1
+"001_HV_MAX_ENERGY_DELIVERY_CONDITION","HV Energie Delivery Condition","","19675",0,19675,"","","","",1
+"001_STATE OF HEALTH","SOH","","(val{000_HV_MAX_ENERGY_CONTENT}*1000)*100/val{001_HV_MAX_ENERGY_DELIVERY_CONDITION}",0,100,"%","","","",1
+"001_NV_ENERGY_REQUIREMENT","NV Energy Req.","0x222ab2","(C*50/1000)",0,999000,"kWh","710","ATCRA77A","ATAR",0.001
+"001_OUT_TEMPERATURE","Out Temp","0x22f446","A-40",0,0,"°C","7E0","","",1
